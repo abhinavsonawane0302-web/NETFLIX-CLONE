@@ -35,7 +35,7 @@ const modaltitle = document.getElementById("modaltitle")
 
 
 
-let movies = JSON.parse(localStorage.getItem("movies"))
+let movies = JSON.parse(localStorage.getItem("movies")) || []
 
 
 function readcard(arr) {
@@ -229,12 +229,16 @@ addMovieBtn.addEventListener("click", function () {
 closemodalBtn.addEventListener("click", function () {
     moviemodal.style.display = "none"
 
-    movieform.reset()
+
 })
 
+Cancel.addEventListener("click", function (){
+    moviemodal.style.display ="none"
+    movieform.reset()
 
+})
 
-
+ movieform.reset()
 
 
 
