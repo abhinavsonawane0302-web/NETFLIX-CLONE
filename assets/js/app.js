@@ -139,6 +139,16 @@ function oncreate(ele) {
 
     moviemodal.style.display = "none"
 
+    Swal.fire({
+
+        title:" Movie Added",
+        icon:"success",
+        timer:2000
+
+    })
+        
+    
+
 }
 
 
@@ -162,6 +172,9 @@ function onedit(ele) {
     moviemodal.style.display ="flex"
 
     modaltitle.innerText ="Update Movie"
+
+        
+    
 
 }
 
@@ -196,6 +209,16 @@ function onupdate() {
 
     movieform.reset()
 
+      Swal.fire({
+
+        title:" Movie Update Successfully",
+        icon:"success",
+        timer:2000
+
+    })
+        
+    
+
 }
 
 function ondelete(ele){
@@ -214,6 +237,14 @@ function ondelete(ele){
     localStorage.setItem("movies", JSON.stringify(movies))
 
     readcard(movies)
+
+    Swal.fire({
+
+       title:" Movie Delete Successfully",
+        icon:"success",
+        timer:2000
+
+    })
 
 }
 
