@@ -32,8 +32,22 @@ const modaltitle = document.getElementById("modaltitle")
 
 //  localStorage.setItem("movies",JSON.stringify(moviearr))
 
+function setRating(rating) {
+    if (rating > 7) {
+        return "badge-success";
+    } else if (rating >= 4 && rating <= 7) {
+        return "badge-warning";
+    } else {
+        return "badge-danger";
+    }
+}
 
 
+
+function onToggle() {
+    moviemodal.classList.toggle("active")
+    
+}
 
 let movies = JSON.parse(localStorage.getItem("movies")) || []
 
@@ -47,11 +61,11 @@ function readcard(arr) {
                          <div class="card mt-3 movieCard">
                             <div class="card-header d-flex justify-content-between">
                                 <h4 class="movieTitle">${ele.name}</h4>
-                                <h5><span class="badge badge-success">${ele.rating}</span></h5>
+                                <h5><span class="badge ${setRating(ele.rating)}">${ele.rating}</span></h5>
                             </div>
                             <div class="card-body">
                                   <figure class="py-0">
-                                       <img src="${ele.img}" alt="fast&furious" class="card-img">
+                                       <img src="${ele.img}" alt="${ele.name}" class="card-img">
                                         <figcaption>
                                              <h5>${ele.name}</h5>
                                              <p>${ele.description}</p>
@@ -111,11 +125,11 @@ function oncreate(ele) {
                          <div class="card mt-3 movieCard">
                             <div class="card-header d-flex justify-content-between">
                                 <h4 class="movieTitle">${movieobj.name}</h4>
-                                <h5><span class="badge badge-success">${movieobj.rating}</span></h5>
+                                <h5><span class="badge ${setRating(movieobj.rating)}">${movieobj.rating}</span></h5>
                             </div>
                             <div class="card-body">
                                   <figure class="py-0">
-                                       <img src="${movieobj.img}" alt="fast&furious" class="card-img">
+                                       <img src="${movieobj.img}" alt="${movieobj.name}" class="card-img">
                                         <figcaption>
                                              <h5>${movieobj.name}</h5>
                                              <p>${movieobj.description}</p>
@@ -137,7 +151,8 @@ function oncreate(ele) {
 
     movieform.reset()
 
-    moviemodal.style.display = "none"
+    onToggle()
+
 
     Swal.fire({
 
@@ -155,7 +170,7 @@ function oncreate(ele) {
 function onedit(ele) {
     let editid = ele.getAttribute("data-edit-id")
 
-    editId = editid
+
 
     let editobj = movies.find(e => e.id === editid)
 
@@ -169,7 +184,8 @@ function onedit(ele) {
 
     Updatebtn.setAttribute("data-edit-id",editid)
 
-    moviemodal.style.display ="flex"
+    onToggle()
+
 
     modaltitle.innerText ="Update Movie"
 
@@ -203,11 +219,12 @@ function onupdate() {
     Updatebtn.classList.add("d-none")
     addmovie.classList.remove("d-none")
 
-    moviemodal.style.display = "none"
 
     modaltitle.innerText = "Add Movie"
 
     movieform.reset()
+
+    onToggle()
 
       Swal.fire({
 
@@ -253,21 +270,13 @@ function ondelete(ele){
 movieform.addEventListener("submit", oncreate)
 Updatebtn.addEventListener("click", onupdate)
 
-addMovieBtn.addEventListener("click", function () {
-    moviemodal.style.display = "flex"
-})
-
-closemodalBtn.addEventListener("click", function () {
-    moviemodal.style.display = "none"
 
 
-})
+addMovieBtn.addEventListener("click", onToggle)
 
-Cancel.addEventListener("click", function (){
-    moviemodal.style.display ="none"
-    movieform.reset()
+closemodalBtn.addEventListener("click", onToggle)
 
-})
+Cancel.addEventListener("click", onToggle)
 
  movieform.reset()
 

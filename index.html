@@ -58,80 +58,77 @@
         </div>
     </div>
 
-    <div class="container ">
-        <div class="row">
-            <div class="col-md-8 offset-2">
-
-                <div id="moviemodal" class="movie-modal">
-
-                    <div class="movie-modal-content col-md-8">
-
-                        <form id="movieform" class="mb-5">
-
-                            <div class="card text-white">
-
-                                <div class="card-header justify-content-between d-flex">
-                                    
-                                    <h3 id="modaltitle">Add Movie</h3>
-
-                                    <button type="button" id="closemodalBtn" class="close text-white">
-
-                                        &times;
 
 
-                                    </button>
+    <div id="moviemodal" class="movie-modal">
 
-                                </div>
+        <div class="movie-modal-content col-md-8">
 
-                                <div class="card-body">
+            <form id="movieform" class="mb-5">
 
-                                    <div class="form-group">
+                <div class="card text-white">
 
-                                        <label for="moviename">Movie Title</label>
-                                        <input type="text"  class="form-control" id="moviename" required>
+                    <div class="card-header justify-content-between d-flex">
 
-                                    </div>
+                        <h3 id="modaltitle">Add Movie</h3>
 
-                                    <div class="form-group">
+                        <button type="button" id="closemodalBtn" class="close text-white">
 
-                                        <label for="imgurl">Movie Img Url</label>
-                                        <input type="text"  class="form-control" id="imgurl" required>
-
-                                    </div>
+                            &times;
 
 
-                                    <div class="form-group">
+                        </button>
 
-                                        <label for="description">Movie Description</label>
-                                        <textarea  class="form-control" id="description" required></textarea>
+                    </div>
 
-                                    </div>
+                    <div class="card-body">
+
+                        <div class="form-group">
+
+                            <label for="moviename">Movie Title</label>
+                            <input type="text" class="form-control" id="moviename" required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="imgurl">Movie Img Url</label>
+                            <input type="url" class="form-control" id="imgurl" required>
+
+                        </div>
 
 
-                                    <div class="form-group">
+                        <div class="form-group">
 
-                                        <label for="rating">Movie Rating</label>
-                                        <input type="number"  class="form-control" id="rating" min="1" max="5" required>
+                            <label for="description">Movie Description</label>
+                            <textarea class="form-control" id="description" required></textarea>
 
-                                    </div>
-                                </div>
+                        </div>
 
-                                <div class="card-footer">
-                                    <div class="justify-content-between d-flex">
 
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" id="addmovie">Add Movie</button>
-                                        <button type="button"  class="btn btn-sm btn-outline-danger d-none" id="Updatebtn">Update Movie Info</button>
-                                        <button type="button" class="btn btn-sm btn-outline-dark" id="Cancel">Cancel</button>
+                        <div class="form-group">
 
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                            <label for="rating">Movie Rating</label>
+                            <input type="number" class="form-control" id="rating" min="1" max="10" step="0.1" required>
+
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="justify-content-between d-flex">
+
+                            <button type="submit" class="btn btn-sm btn-outline-danger" id="addmovie">Add Movie</button>
+                            <button type="button" class="btn btn-sm btn-outline-danger d-none" id="Updatebtn">Update
+                                Movie Info</button>
+                            <button type="button" class="btn btn-sm btn-outline-dark" id="Cancel">Cancel</button>
+
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
+    
 
 
 

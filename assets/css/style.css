@@ -123,7 +123,7 @@ body::before {
 .movieCard figure img {
     height: 100%;
     width: 100%;
-    object-fit:fill;
+    object-fit:cover;
 }
 
 
@@ -153,7 +153,6 @@ figcaption {
 .movie-modal {
     display: none;
     position: fixed;
-    z-index: 999;
     left: 0;
     top: 0;
     width: 100%;
@@ -166,5 +165,10 @@ figcaption {
     max-width: 700px;
 }
 
+.movie-modal.active{
+    display: block;
+}
 
-
+.addMovieBtn{
+    display: none;
+}
